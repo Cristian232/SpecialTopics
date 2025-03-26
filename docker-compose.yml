@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" # Next.js frontend
+      - "7681:7681" # ttyd web terminal
+    volumes:
+      - .:/workspace/app # Next.js app
+    ##      - ./plingua-examples:/workspace/plingua/examples  # P-Lingua examples folder
+    restart: unless-stopped
